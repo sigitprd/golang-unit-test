@@ -3,6 +3,9 @@ package helper
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestHelloWorldSigit(t *testing.T) {
@@ -41,4 +44,28 @@ func TestHelloWorldPriadi(t *testing.T) {
 		// panic("Expected Hello Priadi, but got " + result)
 	}
 	fmt.Println("Test HelloWorldPriadi Success")
+}
+
+func TestHelloWorldSigitAssertion(t *testing.T) {
+	result := HelloWorld("Sigit")
+	assert.Equal(t, "Hello Sigit", result)
+	fmt.Println("Test HelloWorldSigitAssertion Success")
+}
+
+func TestHelloWorldPriadiAssertion(t *testing.T) {
+	result := HelloWorld("Priadi")
+	assert.Equal(t, "Hello Priadi", result)
+	fmt.Println("Test HelloWorldPriadiAssertion Success")
+}
+
+func TestHelloWorldSigitRequire(t *testing.T) {
+	result := HelloWorld("Sigit")
+	require.Equal(t, "Hello Sigit", result)
+	fmt.Println("Test HelloWorldSigitRequire Success")
+}
+
+func TestHelloWorldPriadiRequire(t *testing.T) {
+	result := HelloWorld("Priadi")
+	require.Equal(t, "Hello Priadi", result)
+	fmt.Println("Test HelloWorldPriadiRequire Success")
 }
