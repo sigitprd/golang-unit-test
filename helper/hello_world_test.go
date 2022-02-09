@@ -1,12 +1,19 @@
 package helper
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
-func TestHelloWorld(t *testing.T) {
+func TestHelloWorldSigit(t *testing.T) {
 	result := HelloWorld("Sigit")
 	if result != "Hello Sigit" {
-		panic("Expected Hello Sigit, but got " + result)
+		// panic("Expected Hello Sigit, but got " + result)
+		t.Error("Expected Hello Sigit, but got " + result)
+		// t.Fail()
 	}
+
+	fmt.Println("Test HelloWorldSigit Success")
 	// type args struct {
 	// 	name string
 	// }
@@ -29,6 +36,9 @@ func TestHelloWorld(t *testing.T) {
 func TestHelloWorldPriadi(t *testing.T) {
 	result := HelloWorld("Priadi")
 	if result != "Hello Priadi" {
-		panic("Expected Hello Priadi, but got " + result)
+		t.Fatal("Expected Hello Priadi, but got " + result)
+		// t.FailNow()
+		// panic("Expected Hello Priadi, but got " + result)
 	}
+	fmt.Println("Test HelloWorldPriadi Success")
 }
