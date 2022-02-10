@@ -15,6 +15,19 @@ func TestMain(m *testing.M) {
 	fmt.Println("After TestMain")
 }
 
+func TestSubTest(t *testing.T) {
+	t.Run("Sigit", func(t *testing.T) {
+		result := HelloWorld("Sigit")
+		assert.Equal(t, "Hello Sigit", result, "Expected Hello Sigit, but got "+result)
+		fmt.Println("Test HelloWorldSigitRequire Success")
+	})
+	t.Run("Priadi", func(t *testing.T) {
+		result := HelloWorld("Priadi")
+		assert.Equal(t, "Hello Priadi", result, "Expected Hello Priadi, but got "+result)
+		fmt.Println("Test HelloWorldPriadiRequire Success")
+	})
+}
+
 func TestSkip(t *testing.T) {
 	if runtime.GOOS == "windows" {
 		t.Skip("Skip on windows")
