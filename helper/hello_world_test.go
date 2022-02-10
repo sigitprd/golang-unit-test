@@ -15,6 +15,42 @@ func TestMain(m *testing.M) {
 	fmt.Println("After TestMain")
 }
 
+func TestHelloWorldTable(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		{
+			name:     "HelloWorld(Sigit)",
+			request:  "Sigit",
+			expected: "Hello Sigit",
+		},
+		{
+			name:     "HelloWorld(Priadi)",
+			request:  "Priadi",
+			expected: "Hello Priadi",
+		},
+		{
+			name:     "HelloWorld(Budi)",
+			request:  "Budi",
+			expected: "Hello Budi",
+		},
+		{
+			name:     "HelloWorld(Joko)",
+			request:  "Joko",
+			expected: "Hello Joko",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := HelloWorld(tt.request)
+			// assert.Equal(t, tt.expected, result)
+			require.Equal(t, tt.expected, result)
+		})
+	}
+}
+
 func TestSubTest(t *testing.T) {
 	t.Run("Sigit", func(t *testing.T) {
 		result := HelloWorld("Sigit")
