@@ -15,6 +15,18 @@ func TestMain(m *testing.M) {
 	fmt.Println("After TestMain")
 }
 
+func BenchmarkHelloWorldSigit(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Sigit")
+	}
+}
+
+func BenchmarkHelloWorldPriadi(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Priadi")
+	}
+}
+
 func TestHelloWorldTable(t *testing.T) {
 	tests := []struct {
 		name     string
