@@ -15,6 +15,20 @@ func TestMain(m *testing.M) {
 	fmt.Println("After TestMain")
 }
 
+func BenchmarkSub(b *testing.B) {
+	b.Run("Joko", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Joko")
+		}
+	})
+
+	b.Run("Winarno", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Winarno")
+		}
+	})
+}
+
 func BenchmarkHelloWorldSigit(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		HelloWorld("Sigit")
